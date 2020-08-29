@@ -30,16 +30,15 @@ public class FilePartReader {
         String[] splitLines = read().split("\n");
         StringBuilder stringBuilder = new StringBuilder();
 
-        if (toLine>splitLines.length) {
-            throw new ArrayIndexOutOfBoundsException("toLine must be lower or equals to number of lines in text file ");
-        }
+//        if (toLine>splitLines.length) {
+//            throw new ArrayIndexOutOfBoundsException("toLine must be lower or equals to number of lines in text file ");
+//        }
 
-        for (int line = fromLine; line <= toLine; line++){
+        for (int line = fromLine; line <= Math.min(toLine, splitLines.length); line++){
             try {
                 stringBuilder.append(splitLines[line - 1]).append("\n");
             } catch (Exception e) {
                 e.printStackTrace();
-
             }
         }
         return stringBuilder.toString();
