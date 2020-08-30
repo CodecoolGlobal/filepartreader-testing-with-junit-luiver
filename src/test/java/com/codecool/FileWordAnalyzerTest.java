@@ -16,11 +16,9 @@ import static org.mockito.Mockito.when;
 
 class FileWordAnalyzerTest {
 
-    @Mock
     static FilePartReader filePartReader;
 
-    @InjectMocks
-    private static FileWordAnalyzer fileWordAnalyzer;
+    static FileWordAnalyzer fileWordAnalyzer;
 
     @BeforeAll
     static void beforeAll() throws IOException {
