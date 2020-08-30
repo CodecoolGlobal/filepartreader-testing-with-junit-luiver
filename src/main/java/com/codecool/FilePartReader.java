@@ -10,16 +10,21 @@ public class FilePartReader {
     private Integer toLine;
 
     public FilePartReader() {
-        setup("src/main/resources/test.txt",1,1);
+        //setup("src/main/resources/test.txt",1,1);
+        init("", -1, -1);
     }
 
-    public void setup(String filePath, Integer fromLine, Integer toLine) throws IllegalArgumentException {
-        if (toLine < fromLine || fromLine < 1) {
-            throw new IllegalArgumentException("toLine must be greater or equals to fromLine and fromLine must be > 0");
-        }
+    private void init(String filePath, Integer fromLine, Integer toLine){
         this.filePath = filePath;
         this.fromLine = fromLine;
         this.toLine = toLine;
+    }
+
+    public void setup(String filePath, Integer fromLine, Integer toLine) throws IllegalArgumentException{
+        if (toLine < fromLine || fromLine < 1) {
+            throw new IllegalArgumentException("toLine must be greater or equals to fromLine and fromLine must be > 0");
+        }
+        init(filePath, fromLine, toLine);
     }
 
     public String read() throws IOException {
@@ -35,11 +40,11 @@ public class FilePartReader {
 //        }
 
         for (int line = fromLine; line <= Math.min(toLine, splitLines.length); line++){
-            try {
+//            try {
                 stringBuilder.append(splitLines[line - 1]).append("\n");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         }
         return stringBuilder.toString();
     }
