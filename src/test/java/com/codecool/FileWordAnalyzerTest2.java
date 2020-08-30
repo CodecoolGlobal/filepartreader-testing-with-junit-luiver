@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class FileWordAnalyzerTest2 {
 
     @Mock
-    static FilePartReader filePartReader;
+    FilePartReader filePartReader;
 
     @InjectMocks
     FileWordAnalyzer fileWordAnalyzer;
